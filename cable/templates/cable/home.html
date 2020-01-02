@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Adicionar Contas{% endblock %}
+
+{% block content %}
+
+<h1>Hello</h1>
+
+<a id="add-link" href="{% url 'new-task' %}">
+    <button type="button" class="btn btn-primary" id="alinha-bt"><i class="fas fa-plus" id="plus-afast"></i></button>
+</a>
+<br>
+<br>
+<a id="add-link" href="{% url 'task-list' %}">
+    <button type="button" class="btn btn-primary" id="alinha-bt"><i class="far fa-caret-square-right"></i></i></button>
+</a>
+<br>
+
+
+
+{% endblock %}
+
+task-list

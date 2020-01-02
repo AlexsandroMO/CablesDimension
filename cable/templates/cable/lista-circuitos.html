@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Adicionar Contas{% endblock %}
+
+{% block content %}
+
+<div class="offset-1 col-16 list-div"></div>
+    <h3>Tabela de Circuitos</h3>
+    
+    <table class="table-round-corner" cellspacing="0">
+        <tr>
+            <th>LOCAL</th>
+            <th>TIPO</th>
+            <th>TENSÃO (VA)</th>
+            <th>QUANT.</th>
+            <th>POTÊNCIA (VA)</th>
+            <th>TOTAL (VA)</th>
+            <th>CORRENTE (VA)</th>
+            <th>COMP. CKT</th>
+            <TH>SEÇÃO CONDUTOR</TH>
+            <th>QUEDA TENÃO (%)</th>
+            <th>QUEDA TENÃO PERMITIDA(%)</th>
+            <th>QUEDA TESTE</th>
+            <th>CAPACIDADE CORRENTE</th>
+            <th>N DE POLOS</th>
+            <th>CORRENTE NOMINAL</th>
+            <th>VERIFICA DJ</th>
+        </tr>
+        {% for item in tasks %}
+            <tr>
+                <td>{{item.local}}</td>
+                <td>{{item.tipo}}</td>
+                <td>{{item.tensa_va}}</td>
+                <td>{{item.quant}}</td>
+                <td>{{item.potencia_va}}</td>
+                <td>{{item.total_va}}</td>
+                <td>{{item.corrente_a}}</td>
+                <td>{{item.comprimento}}</td>
+                <td>{{item.sessao_condutor}}</td>
+                <td>{{item.queda_tensao_ckt}}</td>
+                <td>{{item.queda_tensao_perm}}</td>
+                <td>{{item.queda_tensao_test}}</td>
+                <td>{{item.capacidade_corrente}}</td>
+                <td>{{item.numero_polos}}</td>
+                <td>{{item.corrente_nominal}}</td>
+                <td>{{item.verifica_dj}}</td>
+            </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+
+<br>
+<br>
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-Compatible" content="ie-edge">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="/">Meus Projetos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+         {% if user.is_authenticated %}
+            <li class="nav-item">
+            <a class="nav-link" href="/">Circuitos</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/accounts/login/">Usuários</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/accounts/register/">Cadastro</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="tasklist">Faturar</a>
+            </li>
+            {% else %}
+                <li class="nav-item">
+                <a class="nav-link" href="accounts/login">Entrar</a>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="accounts/logout">Sair</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">&nbsp;</a>
+            </li>
+
+           
+                <form method="GET" id="search-form">
+                    <span><input class="form-control" type="search" id="search" name="search" placeholder="Localizar Conta" value="{{request.GET.search}}">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-btn">Pesquisar</button></span>
+                </form>
+         
+
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock%}
+
+    <footer>
+        <p>Projeto Dimensionameto de Circuitos</p>  
+    </footer>
+
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
