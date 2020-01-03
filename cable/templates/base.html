@@ -24,7 +24,7 @@
         <ul class="navbar-nav mr-auto">
          {% if user.is_authenticated %}
             <li class="nav-item">
-            <a class="nav-link" href="/">Circuitos</a>
+            <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/accounts/login/">Usuários</a>
@@ -33,7 +33,7 @@
             <a class="nav-link" href="/accounts/register/">Cadastro</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="tasklist">Faturar</a>
+            <a class="nav-link" href="tasklist">Circuitos</a>
             </li>
             {% else %}
                 <li class="nav-item">
@@ -53,7 +53,7 @@
 
            
                 <form method="GET" id="search-form">
-                    <span><input class="form-control" type="search" id="search" name="search" placeholder="Localizar Conta" value="{{request.GET.search}}">
+                    <span><input class="form-control" type="search" id="search" name="search" placeholder="Localizar Circuito" value="{{request.GET.search}}">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-btn">Pesquisar</button></span>
                 </form>
          

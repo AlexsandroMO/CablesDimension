@@ -7,6 +7,7 @@
     margin: 0;
 }
 
+
 /* Navbar */
  .navbar {
     border-bottom: 1px solid #333;
@@ -28,18 +29,24 @@
     letter-spacing: 1px;
 }
 
+#div-alinha{
+    position: relative;
+    left: 20px;
+
+}
+
 h3{
     padding-top: 6px;
     padding-bottom: 20px;
-    position: relative;
-    left: 20px;
+ 
 }
 
 /*botão adicionar*/
 
-#add-link{
+/* #add-link{
     text-decoration: none;
-}
+    
+} */
 
 #alinha-bt{
     display: inline-block;
@@ -327,10 +334,10 @@ ul.messages li{
 .table-round-corner {
     margin-top: 15px;
     padding: 0;
-    width: 80%;
+    width: 50%;
     text-align: center;
-    overflow:hidden;
-    border-collapse:separate;
+    overflow: hidden;
+    border-collapse: separate;
     border: solid #ccc 1px;
     -webkit-border-radius: 10px;
        -moz-border-radius: 10px;
@@ -367,4 +374,23 @@ table th{
     text-align: center;
     padding: 5px;
     font-size: 16px;
+    border: solid #ccc 1px;
 }
+
+ table tr{
+    color: white;
+    background-color: #708090;
+    font-weight: normal;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#th-w{
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 80px;
+
+}
+
