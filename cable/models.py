@@ -27,7 +27,8 @@ class Disjuntor(models.Model):
 
 
 class Tensao(models.Model):
-    volts = models.DecimalField(verbose_name='Tensão (VA)', max_digits=5, decimal_places=0)
+    #volts = models.IntegerField(blank=True, null=True)
+    volts = models.CharField(max_length=10)
 
     def __str__(self):
         return self.volts 
@@ -37,8 +38,8 @@ class ResidencDimens(models.Model):
 
     local = models.CharField(verbose_name='Local da Instalação', max_length=50)
     tipo = models.ForeignKey(TipoCircuito, verbose_name='Tipo de Instalação', on_delete=models.CASCADE)
-    #tensa_va = models.ForeignKey(Tensao, verbose_name='Tensão (VA)', on_delete=models.CASCADE)
-    tensa_va = models.DecimalField(verbose_name='Tensão (VA)', max_digits=5, decimal_places=0)
+    tensa_va = models.ForeignKey(Tensao, verbose_name='Tensão (VA)', on_delete=models.CASCADE)
+    #tensa_va = models.DecimalField(verbose_name='Tensão (VA)', max_digits=5, decimal_places=0)
     quant = models.DecimalField(verbose_name='Quantidade', max_digits=3, decimal_places=0)
     potencia_va = models.DecimalField(verbose_name='Potência (VA)', max_digits=7, decimal_places=2)
     total_va = models.DecimalField(verbose_name='Total (VA)', max_digits=8, decimal_places=2, blank=True)

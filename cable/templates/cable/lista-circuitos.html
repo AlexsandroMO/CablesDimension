@@ -6,11 +6,24 @@
 
 {% block content %}
 
+
 <div class="offset-1 col-16 list-div"></div>
     <h3>Tabela de Circuitos</h3>
+    <a id="add-link" href="{% url 'new-task' %}">
+        <button type="button" class="btn btn-primary" id="alinha-bt"><i class="fas fa-plus" id="plus-afast"></i></button>
+    </a>
     
+    {% if messages %}
+    <ul class="messages">
+       {% for message in messages %}
+            <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{ message }}</li>
+       {% endfor %}
+    </ul>
+    {% endif %}
+
     <table class="table-round-corner" cellspacing="0">
         <tr>
+            <th></th>
             <th>LOCAL</th>
             <th>TIPO</th>
             <th>TENSÃO (VA)</th>
@@ -27,9 +40,12 @@
             <th>N DE POLOS</th>
             <th>CORRENTE NOMINAL</th>
             <th>VERIFICA DJ</th>
+            <th></th>
+            
         </tr>
-        {% for item in tasks %}
+        {% for item in task %}
             <tr>
+                <td><a href="edittask/{{item.id}}"><span><i class="fas fa-edit"></i></span></a></td>
                 <td>{{item.local}}</td>
                 <td>{{item.tipo}}</td>
                 <td>{{item.tensa_va}}</td>
@@ -46,6 +62,8 @@
                 <td>{{item.numero_polos}}</td>
                 <td>{{item.corrente_nominal}}</td>
                 <td>{{item.verifica_dj}}</td>
+                <td><a href="deletetask/{{item.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a></td>
+                
             </tr>
         {% endfor %}
         

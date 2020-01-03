@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import TabelaCondutor, TipoCircuito, Disjuntor, ResidencDimens
+from .models import TabelaCondutor, TipoCircuito, Disjuntor, Tensao, ResidencDimens
 
 
 class ListaTabelaCondutor(admin.ModelAdmin):
@@ -16,5 +16,6 @@ class ListaResidencDimens(admin.ModelAdmin):
 admin.site.register(TabelaCondutor, ListaTabelaCondutor)
 admin.site.register(TipoCircuito)
 admin.site.register(Disjuntor)
+admin.site.register(Tensao)
 admin.site.register(ResidencDimens, ListaResidencDimens)
 

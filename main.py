@@ -15,6 +15,7 @@ def read_sql_queda(queda):
 
 	return read_db
 
+
 def read_sql_corr(corr):
 	conn = sqlite3.connect('db.sqlite3')
 	sql_datas = f"""
