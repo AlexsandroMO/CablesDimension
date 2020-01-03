@@ -32,22 +32,35 @@ def newTask(request):
             queda = task.sessao_condutor
             test = main.read_sql_queda(queda)
             queda_tensao = test['queda_tesao'][0]
-            
-            print(test['queda_tesao'][0])
-            print(task.total_va)
-            print(task.corrente_a)
-            print(task.tensa_va)
-            print(task.quant)
-            print(task.potencia_va)
-            print(task.comprimento)
-            #print((queda_tensao * task.corrente_a))
 
-            #calc = ((((queda_tensao * task.corrente_a) * task.comprimento) / 1000) / task.total_va)
-            #print('\n\nCalc: ', calc, '\n\n')
-
-            task.queda_tensao_ckt = 0
-            #task.queda_tensao_ckt = ((((test['queda_tesao'][0] * task.corrente_a) * task.comprimento) / 1000) / task.total_va)
+            calc = ((((float(queda_tensao) * float(task.corrente_a)) * float(task.comprimento)) / (1000) / float(task.total_va)))
             
+            task.queda_tensao_ckt = calc * 100
+
+            if (float(task.queda_tensao_perm) / 100)< task.queda_tensao_ckt:
+                task.queda_tensao_test = 'OK'
+            else:
+                task.queda_tensao_test = 'NÃO'
+            
+            corr = task.sessao_condutor
+            test = main.read_sql_corr(corr)
+            corrente = test['capacidade_conducao'][0]
+
+            if corrente > float(task.corrente_a):
+                task.capacidade_corrente = 'OK'
+            else:
+                task.capacidade_corrente = 'NÀO'
+
+          
+            dj = task.corrente_nominal
+            test = main.read_sql_dj(dj)
+            djj = int(test['dj'][0])
+
+            if djj > (float(task.corrente_a) * 1.1):
+                task.verifica_dj = 'OK'
+            else:
+                task.verifica_dj = 'NÀO'
+
             task.save()
 
             return redirect('/')
