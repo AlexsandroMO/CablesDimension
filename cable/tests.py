@@ -20,7 +20,10 @@ from django.test import TestCase
 
 
 
-'''Upload documents on Github
+'''
+#Git no windows:
+#comando no cmd: setx PATH "%PATH%;C:/Arquivos de Programas/Git/bin"
+Upload documents on Github
 git clone <nome>
 <entra na pasta criada>
 git add .
