@@ -35,6 +35,8 @@ git checkout master - entra na master
 git merge origin "nome" 
 git push origin master - subir commit
 git branch -D "nome"- deletar branch
+
+git pull 
 '''
 
 
